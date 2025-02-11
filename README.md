@@ -6,5 +6,7 @@
 ### Enjoy it ...
 ### Thanks 
 
-> #### <i class="fa fa-gear fa-spin fa-2x" style="color: firebrick"></i> Configuration
-> Configuration can be launched from the **Tools -> Settings** menu option.
+## Connect with me  
+[![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?style=for-the-badge&logo=facebook&logoColor=white)](https://www.facebook.com/ammar.afzal277)  
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230A66C2.svg?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/your-profile)  
+[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/your-profile)
