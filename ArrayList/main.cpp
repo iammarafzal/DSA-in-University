@@ -6,22 +6,17 @@ using namespace std;
 int main(int argc, char** argv) {
 	ArrayList lst1(5);
 	
-
-
-	lst1.insert(2);
-	lst1.insert(4);
-	lst1.insert(6);
-	lst1.insert(8);
-	lst1.insert(10, 1);
+	lst1.insert(0);
+	lst1.insert(7);
+	lst1.insert(9);
 	lst1.insert(3);
-//	lst1.insert(4);
-//	lst1.insert(5);
-//	lst1.insert(6);
-//	lst1.insert(7);
+	lst1.insert(17);
 
 	lst1.display();
 //	lst1.arraySize();
-	lst1.CI();
+
+	lst1.removeAt(1);
+	lst1.display();
 	
 	return 0;
 }

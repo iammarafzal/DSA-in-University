@@ -21,6 +21,7 @@ class ArrayList {
 		void arraySize();
 		void insert(int val, int index);
 		void CI();
+		void removeAt(int index);
 };
 
 void ArrayList::insert(int val){
@@ -71,4 +72,15 @@ void ArrayList::insert(int val, int index) {
 
 void ArrayList::CI(){
 	cout<< this->currentIndex <<endl;
+}
+
+void ArrayList::removeAt(int index){
+	if (index < 0 || index >= currentIndex){
+		cerr<< "Invalid Index \n";
+		return;
+	}
+	for (int i=index; i<currentIndex-1; i++){
+		arr[i] = arr[i+1];
+	}
+	currentIndex--;
 }
