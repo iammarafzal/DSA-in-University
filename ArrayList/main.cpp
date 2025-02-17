@@ -6,14 +6,15 @@ using namespace std;
 int main(int argc, char** argv) {
 	ArrayList lst1(5);
 	
-	// lst1.insert(0);
-	// lst1.insert(7);
-	// lst1.insert(9);
-	// lst1.insert(3);
-	// lst1.insert(17);
+
+	lst1.insert(9);
+	lst1.insert(3);
+	lst1.insert(5);
+	lst1.insert(17);
+	lst1.insert(4);
 
 // Sorted List
-	lst1.insert(19);
+	// lst1.insert(19);
 	// lst1.insert(22);
 	// lst1.insert(35);
 	// lst1.insert(38);
@@ -31,8 +32,11 @@ int main(int argc, char** argv) {
 	// cout<< lst1.isFound(3) <<endl;
 	// cout<< lst1.binarySearch(39) <<endl;
 	lst1.display();
+	lst1.Sort();
+	lst1.display();
 
-	lst1.largestNum();
+
+	// lst1.largestNum();
 	
 	return 0;
 }

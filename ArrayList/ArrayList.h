@@ -28,6 +28,7 @@ class ArrayList {
 		bool isFound(int target);
 		bool binarySearch(int target);
 		void largestNum();
+		void Sort();
 };
 
 void ArrayList::insert(int val){
@@ -74,7 +75,7 @@ void ArrayList::insert(int val, int index) {
 	}
 	arr[index] = val;
 	currentIndex++;
-}
+} // Insert at some index
 
 void ArrayList::CI(){
 	cout<< this->currentIndex <<endl;
@@ -89,7 +90,7 @@ void ArrayList::removeAt(int index){
 		arr[i] = arr[i+1];
 	}
 	currentIndex--;
-} // remove at some index
+} // remove from some index
 
 void ArrayList::removeLast(){
 	currentIndex = currentIndex-1;
@@ -156,11 +157,23 @@ void ArrayList::largestNum(){
 			index = i;
 		}
 	}
-	if (index >= 0){
-		cout<< "Largest number " <<maxNum << " is at " <<index <<" index. \n";
+	if (index >=0){
+		cout<< "Largest number " <<maxNum <<" is at " <<index <<" index. \n";
 	}
 	else {
-		cout<< "Array is null! \n";
+		cout<< "Array is null. \n";
+	}
+} // Index of Largest Number in Array
+
+void ArrayList::Sort(){
+	int temp;
+	for (int i=0; i<this->currentIndex; i++){
+		for (int j=0; j<this->currentIndex-i-1; j++){
+			if (arr[j] > arr[j+1]){
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
 	}
 }
-
