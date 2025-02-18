@@ -7,19 +7,21 @@ int main(int argc, char** argv) {
 	ArrayList lst1(5);
 	
 
+	lst1.insert(2);
 	lst1.insert(9);
-	lst1.insert(3);
-	lst1.insert(5);
+	lst1.insert(1);
 	lst1.insert(17);
-	lst1.insert(4);
+	lst1.insert(8);
+	lst1.insert(3);
+	lst1.insert(12);
 
 // Sorted List
-	// lst1.insert(19);
-	// lst1.insert(22);
-	// lst1.insert(35);
-	// lst1.insert(38);
-	// lst1.insert(40);
-	// lst1.insert(48);
+//	 lst1.insert(19);
+//	 lst1.insert(22);
+//	 lst1.insert(35);
+//	 lst1.insert(38);
+//	 lst1.insert(40);
+//	 lst1.insert(48);
 
 	// lst1.display();
 //	cout<< lst1.binarySearch(40);
@@ -32,7 +34,10 @@ int main(int argc, char** argv) {
 	// cout<< lst1.isFound(3) <<endl;
 	// cout<< lst1.binarySearch(39) <<endl;
 	lst1.display();
-	lst1.Sort();
+//	lst1.insertionSort(5);
+	lst1.bubbleSort();
+//	cout<< lst1.largestValue(5);
+//	lst1.selectionSort();
 	lst1.display();
 
 

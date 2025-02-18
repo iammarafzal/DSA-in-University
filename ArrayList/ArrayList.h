@@ -28,7 +28,10 @@ class ArrayList {
 		bool isFound(int target);
 		bool binarySearch(int target);
 		void largestNum();
-		void Sort();
+		int largestValue(int range);  // return max values index
+		void selectionSort();
+		void bubbleSort();
+		void insertionSort(int n);
 };
 
 void ArrayList::insert(int val){
@@ -145,7 +148,7 @@ bool ArrayList::binarySearch(int target) {
         }
     }
     return false;
-} // Binary Search
+} // end of Binary Search
 
 void ArrayList::largestNum(){
 	int maxNum = INT_MIN;
@@ -165,15 +168,52 @@ void ArrayList::largestNum(){
 	}
 } // Index of Largest Number in Array
 
-void ArrayList::Sort(){
-	int temp;
-	for (int i=0; i<this->currentIndex; i++){
-		for (int j=0; j<this->currentIndex-i-1; j++){
+int ArrayList::largestValue(int range){
+	int index = 0;
+	for (int i=1; i<=range; i++){
+		if (arr[index] < arr[i]){
+			index = i;
+		}
+	}
+	return index;
+} // end of Largest Value --- returns index
+
+void ArrayList::bubbleSort(){
+	bool isSorted = true;
+	for (int i=0; i<currentIndex-1; i++){
+		for (int j=0; j<currentIndex-i-1; j++){
 			if (arr[j] > arr[j+1]){
-				temp = arr[j];
+				isSorted = false;
+				int temp = arr[j];
 				arr[j] = arr[j+1];
 				arr[j+1] = temp;
 			}
 		}
+		if (isSorted == true){
+			return;
+		}
 	}
-}
+} // end of Bubble Sort 
+
+void ArrayList::selectionSort(){
+	for (int i=currentIndex-1; i>0; i--){
+		int max_index = largestValue(i);
+		int temp = arr[i];
+		arr[i] = arr[max_index];
+		arr[max_index] = temp;
+	}
+	
+} // end of selection Sort
+
+void ArrayList::insertionSort(int n){
+	for (int k=1; k<n; k++){
+		int key = arr[k];
+		int j= k-1;
+		
+		while (j>=0 && arr[j]>key){
+			arr[j+1] = arr[j];
+			j = j-1;
+		}
+		arr[j+1] = key;
+	}
+} // end of Insertion Sort
