@@ -1,41 +1,47 @@
 #include <iostream>
 using namespace std;
+template <class T>
 
 class Node {
 	private :
-		int info;
-		Node* next;
+		T info;
+		Node<T>* next;
 		
 	public:
-		Node (int info=0, Node *next=0){
+		Node (T info=0, Node<T> *next=0){
 			this->info = info;
 			this->next = next;
 		} // constructor
 		
-		void setInfo(int info);
-		void setNext(Node *next);
-		int getInfo();
-		Node* getNext();
+		void setInfo(T info);
+		void setNext(Node<T> *next);
+		T getInfo();
+		Node<T>* getNext();
 		void display();
 		
 }; // EOC
 
-void Node::setInfo(int info){
+template <class T>
+void Node<T>::setInfo(T info){
 	this->info = info;
 }
 
-void Node::setNext(Node* next){
+template <class T>
+void Node<T>::setNext(Node<T>* next){
 	this->next = next;
 }
 
-int Node::getInfo(){
+template <class T>
+T Node<T>::getInfo(){
 	return this->info;
 }
 
-Node* Node::getNext(){
+template <class T>
+Node<T>* Node<T>::getNext(){
 	return this->next;
 }
 
-void Node::display(){
+template <class T>
+void Node<T>::display(){
 	cout << "| (" << this << ") | " << this->getInfo() << " | " << this->getNext() << " |" <<endl;
 }
