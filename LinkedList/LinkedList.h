@@ -104,7 +104,7 @@ void LinkedList<T>::deleteHead(){
 }
 
 template <class T>
-void LinkedList<T>::insertAt(int val, int index){
+void LinkedList<T>::insertAt(T val, T index){
 	if (index < 0){
 		cerr<< "Invalid Index! \n";
 	}
@@ -120,5 +120,39 @@ void LinkedList<T>::insertAt(int val, int index){
 		}
 		n->setNext(temp->getNext());
 		temp->setNext(n);
+	}
+}
+
+template <class T>
+Node<T>* LinkedList<T>::linearSearch(T val){
+	Node<T>* i = head;
+	
+	while (i != 0){
+		if (val == i->getInfo()){
+			return i;
+		}
+		i = i->getNext();
+	}
+	return i;
+}
+
+template<class T>
+void LinkedList<T>::remove(T element){
+	if ((head == 0 && tail ==0) || linearSearch(val) == 0){
+		cerr<< "Element can not be deleted! \n";
+		return;
+	}
+	else if (head->getNext()==0){
+		delete head;
+		head = tail = 0;
+	}
+	else if (element == head->getInfo()){
+		this->deleteHead();
+	}
+	else if (element == tail->getInfo()){
+		this->deleteTail();
+	}
+	else {
+		
 	}
 }
