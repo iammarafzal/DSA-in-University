@@ -101,22 +101,4 @@ void LinkedList<T>::deleteHead(){
 	}
 }
 
-template <class T>
-void LinkedList<T>::insertAt(int val, int index){
-	if (index < 0){
-		cerr<< "Invalid Index! \n";
-	}
-	else if (index == 0){
-		this->addToHead(val);
-	}
-	else {
-		Node<T>* n = new Node<T>(val);
-		Node<T>* temp = head;
-		
-		for (int i=0; i<index-1; i++){
-			temp = temp->getNext();
-		}
-		n->setNext(temp->getNext());
-		temp->setNext(n);
-	}
-}
+
