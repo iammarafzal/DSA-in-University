@@ -15,7 +15,8 @@ int main(int argc, char** argv) {
 	cout<< endl;
 //	lst.deleteHead();
 	lst.insertAt(4, 2);
-	
+	cout<< lst.linearSearch(10) <<endl;
+	cout<< lst.linearSearch(20) <<endl;
 	
 	lst.display();
 	
