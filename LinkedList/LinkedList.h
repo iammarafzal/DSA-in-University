@@ -2,12 +2,12 @@
 #include "Node.h"
 
 using namespace std;
-template <class T>
 
+template <class T>
 class LinkedList {
-	private:
-		Node<T> *head; //keeps the address of first Node<T>
-		Node<T> *tail; //keeps the address of last Node<T>
+	protected:
+		Node<T>* head; //keeps the address of first Node<T>
+		Node<T>* tail; //keeps the address of last Node<T>
 		
 	public:
 		LinkedList() // user should not be allowed to set 
@@ -20,7 +20,10 @@ class LinkedList {
 			// at the moment there is no Node<T>
 			head = tail = 0;
 		}
-		
+		void setHead(Node<T>* head);
+		void setTail(Node<T>* tail);
+		Node<T>* getHead();
+		Node<T>* getTail();
 		void addToTail (T val);
 		void addToHead(T val);
 		void insertAt(T val, T index);
@@ -30,6 +33,26 @@ class LinkedList {
 		Node<T>* linearSearch(T val);
 		void remove(T element);
 };
+
+template <class T>
+Node<T>* LinkedList<T>::getHead(){
+	return head;
+}
+	
+template <class T>
+Node<T>* LinkedList<T>::getTail(){
+	return tail;
+}
+
+template <class T>
+void LinkedList<T>::setHead(Node<T>* head){
+	this->head = head;
+}
+	
+template <class T>
+void LinkedList<T>::setTail(Node<T>* tail){
+	this->tail = tail;
+}
 
 template <class T>
 void LinkedList<T>::addToTail(T val){
@@ -138,21 +161,27 @@ Node<T>* LinkedList<T>::linearSearch(T val){
 
 template<class T>
 void LinkedList<T>::remove(T element){
-	if ((head == 0 && tail ==0) || linearSearch(val) == 0){
+	if ((head == 0 && tail ==0) || linearSearch(element) == 0){ // if list is empty or element not found
 		cerr<< "Element can not be deleted! \n";
 		return;
 	}
-	else if (head->getNext()==0){
+	else if (head->getNext()==0){ // if 1 node exists
 		delete head;
 		head = tail = 0;
 	}
-	else if (element == head->getInfo()){
+	else if (element == head->getInfo()){ // if element is at head
 		this->deleteHead();
 	}
-	else if (element == tail->getInfo()){
+	else if (element == tail->getInfo()){ // if element is at tail
 		this->deleteTail();
 	}
 	else {
-		
+		Node<T>* temp = linearSearch(element);
+		Node<T>* i = head;
+		while (i->getNext() != temp){
+			i = i->getNext();
+		}
+		i->setNext(temp->getNext());
+		delete temp;
 	}
 }
