@@ -30,7 +30,7 @@ class LinkedList {
 		void deleteTail();
 		void deleteHead();
 		void display();
-		Node<T>* linearSearch(T val);
+		Node<T>* Search(T val);
 		void remove(T element);
 };
 
@@ -147,7 +147,7 @@ void LinkedList<T>::insertAt(T val, T index){
 }
 
 template <class T>
-Node<T>* LinkedList<T>::linearSearch(T val){
+Node<T>* LinkedList<T>::Search(T val){
 	Node<T>* i = head;
 	
 	while (i != 0){
@@ -161,7 +161,7 @@ Node<T>* LinkedList<T>::linearSearch(T val){
 
 template<class T>
 void LinkedList<T>::remove(T element){
-	if ((head == 0 && tail ==0) || linearSearch(element) == 0){ // if list is empty or element not found
+	if ((head == 0 && tail ==0) || Search(element) == 0){ // if list is empty or element not found
 		cerr<< "Element can not be deleted! \n";
 		return;
 	}
@@ -176,7 +176,7 @@ void LinkedList<T>::remove(T element){
 		this->deleteTail();
 	}
 	else {
-		Node<T>* temp = linearSearch(element);
+		Node<T>* temp = Search(element);
 		Node<T>* i = head;
 		while (i->getNext() != temp){
 			i = i->getNext();

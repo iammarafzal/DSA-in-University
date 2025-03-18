@@ -19,7 +19,7 @@ class ArrayList {
 		void display();
 		void resize();
 		void arraySize();
-		void insert(int val, int index);
+		void insertAt(int val, int index);
 		void CI();
 		void removeAt(int index);
 		void removeFirst();
@@ -66,7 +66,7 @@ void ArrayList::arraySize(){
 	cout<< "Size of array: " <<size <<endl;
 } // Array size function
 
-void ArrayList::insert(int val, int index) {
+void ArrayList::insertAt(int value, int index) {
 	if (index < 0 || index > currentIndex){
 		cerr<< "Invalid Index! \n";
 	}
@@ -76,7 +76,7 @@ void ArrayList::insert(int val, int index) {
 	for (int i=currentIndex; i>index; i--){
 		arr[i] = arr[i-1];
 	}
-	arr[index] = val;
+	arr[index] = value;
 	currentIndex++;
 } // Insert at some index
 

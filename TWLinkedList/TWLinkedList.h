@@ -30,6 +30,7 @@ class TWLinkedList {
 		void remove(T element);
 		void insertAfter(T existingV, T newV);
 		void insertBefore(T existingV, T newV);
+		void changeHeadTail();
 };
 
 template <class T>
@@ -210,4 +211,41 @@ void TWLinkedList<T>::insertBefore(T existingV, T newV) {
     prev->setNext(n);
     temp->setPrevious(n);
 }
+
+template<class T>
+void TWLinkedList<T>::changeHeadTail() {
+    if (head == 0) {
+        cerr << "List is empty! \n";
+        return;
+    }
+    if (head == tail) {
+        cerr << "List has only one node. \n";
+        return;
+    }
+
+    // Store references to important nodes
+    TWNode<T>* oldHead = head;
+    TWNode<T>* oldTail = tail;
+    TWNode<T>* beforeTail = tail->getPrevious();
+    TWNode<T>* afterHead = head->getNext();
+
+	head = oldTail;
+	tail = oldHead;
+	
+	head->setPrevious(0);
+	head->setNext(afterHead);
+	
+	tail->setNext(0);
+	tail->setPrevious(beforeTail);
+	
+	if (afterHead != 0){
+		afterHead->setPrevious(head);
+	}
+	if (afterHead != 0){
+		beforeTail->setNext(tail);
+	}
+	
+}
+
+
 

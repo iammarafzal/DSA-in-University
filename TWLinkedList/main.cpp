@@ -5,18 +5,20 @@
 int main(int argc, char** argv) {
 	TWLinkedList<int> lst;
 //	lst.addToHead(2);
-	lst.addToTail(51);
 	lst.addToTail(10);
-	lst.addToHead(12);
+	lst.addToTail(20);
 	lst.addToTail(30);
+	lst.addToTail(50);
 	
 	lst.display();
 	
 //	lst.deleteTail();
 //	lst.deleteHead();
 //	lst.remove(10);
-	lst.insertBefore(12, 20);
+//	lst.insertBefore(12, 20);
+//	lst.changeHeadTail();
 	cout<< endl;
+	lst.insertBefore(30, 25);
 	lst.display();
 	return 0;
 }
