@@ -5,9 +5,9 @@ using namespace std;
 template <class T>
 class StackArray {
 	private:
-		T top;
+		int top;
 		T* arr;
-		T size;
+		int size;
 		
 	public:
 		StackArray(T size=5) {
@@ -19,19 +19,30 @@ class StackArray {
 		bool isEmpty();
 		bool isFull();
 		void display();
+		T topValue();
 };
 
 template <class T>
 void StackArray<T>::push(T element){
-	top++;
-	arr[top] = element;
+	if (top == size-1){
+		cerr<< "Stack overflow.\n";
+	}
+	else {
+		top++;
+		arr[top] = element;
+	}
 }
 
 template <class T>
 T StackArray<T>::pop(){
-	T temp = arr[top];
-	top--;
-	return temp;
+	if (top == size-1){
+		cerr<< "Stack underflow.\n";
+	}
+	else {
+		T temp = arr[top];
+		top--;
+		return temp;
+	}
 }
 
 template <class T>
@@ -60,5 +71,15 @@ void StackArray<T>::display(){
 		i--;
 	}
 	cout<< endl;
+}
+
+template <class T>
+T StackArray<T>::topValue(){
+	if (top == -1){
+		cerr<< "Stack underflow.\n";
+	}
+	else {
+		return arr[top];
+	}
 }
 
