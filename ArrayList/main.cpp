@@ -35,8 +35,10 @@ int main(int argc, char** argv) {
 	// cout<< lst1.binarySearch(39) <<endl;
 	lst1.display();
 //	lst1.insertionSort(5);
-	lst1.bubbleSort();
-//	cout<< lst1.largestValue(5);
+//	lst1.bubbleSort();
+//	cout<< lst1.LV() <<endl;
+//	cout<< lst1.largestValue();
+//	cout<< lst1.largestValueST(0) <<endl;
 //	lst1.selectionSort();
 	lst1.display();
 

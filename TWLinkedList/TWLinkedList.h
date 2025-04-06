@@ -180,7 +180,7 @@ void TWLinkedList<T>::insertAfter(T existingV, T newV){
 		TWNode<T>* n = new TWNode<T>(newV);
 		TWNode<T>* temp = linearSearch(existingV);
 		TWNode<T>* next = temp->getNext();
-		newV->setNext(temp->getNext());
+		newV->setNext(next);
 		temp->setNext(n);
 		newV->setPrevious(temp);
 		next->setPrevious(newV);

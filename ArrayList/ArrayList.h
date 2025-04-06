@@ -28,12 +28,28 @@ class ArrayList {
 		bool isFound(int target);
 		bool binarySearch(int target);
 		void largestNum();
-		int largestValue(int range);  // return max values index
-		void selectionSort();
+		int largestValueEND(int end);  // return max values index
+		int largestValueST(int start);
+		void selectionSortA();
+		void selectionSortD();
 		void bubbleSort();
 		void insertionSort(int n);
+		int LV();
 };
 
+int ArrayList::LV(){
+	int index = -1;
+	int i =0;
+	int maxVal = INT_MIN;
+	while (i<this->currentIndex){
+		if (maxVal < arr[i]){
+			maxVal = arr[i];
+			index = i;
+		}
+		i++;
+	}
+	return index;
+}
 void ArrayList::insert(int val){
 	if (currentIndex >= size){	
 		resize();
@@ -168,15 +184,27 @@ void ArrayList::largestNum(){
 	}
 } // Index of Largest Number in Array
 
-int ArrayList::largestValue(int range){
+int ArrayList::largestValueEND(int end){
 	int index = 0;
-	for (int i=1; i<=range; i++){
+	for (int i=1; i<=end; i++){
 		if (arr[index] < arr[i]){
 			index = i;
 		}
 	}
 	return index;
 } // end of Largest Value --- returns index
+
+int ArrayList::largestValueST(int start){
+	int maxIndex = start;
+	int maxNum = arr[start];
+	for (int i=start+1; i<this->currentIndex; i++){
+		if (arr[i] > maxNum){
+			maxNum = arr[i];
+			maxIndex = i;
+		}
+	}
+	return maxIndex;
+}
 
 void ArrayList::bubbleSort(){
 	bool isSorted = true;
@@ -195,15 +223,25 @@ void ArrayList::bubbleSort(){
 	}
 } // end of Bubble Sort 
 
-void ArrayList::selectionSort(){
+void ArrayList::selectionSortA(){
 	for (int i=currentIndex-1; i>0; i--){
-		int max_index = largestValue(i);
+		int max_index = largestValueEND(i);
 		int temp = arr[i];
 		arr[i] = arr[max_index];
 		arr[max_index] = temp;
 	}
 	
 } // end of selection Sort
+
+void ArrayList::selectionSortD(){
+	for (int i=0; i<currentIndex-1; i++){
+		int max_index = largestValueST(i);
+		int temp = arr[i];
+		arr[i] = arr[max_index];
+		arr[max_index] = temp;
+	}
+	
+} // end of selection Sort]
 
 void ArrayList::insertionSort(int n){
 	for (int k=1; k<n; k++){

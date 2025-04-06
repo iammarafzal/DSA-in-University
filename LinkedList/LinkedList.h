@@ -32,6 +32,8 @@ class LinkedList {
 		void display();
 		Node<T>* Search(T val);
 		void remove(T element);
+		void replaceHeadToTail();
+		void replaceTailToHead();
 };
 
 template <class T>
@@ -185,3 +187,30 @@ void LinkedList<T>::remove(T element){
 		delete temp;
 	}
 }
+
+template<class T>
+void LinkedList<T>::replaceHeadToTail(){
+	if (head == tail || head == 0 && tail == 0){
+		cerr<< "Can not replace.\n";
+	}
+	else {
+		Node<T>* temp = head;
+		this->addToTail(temp->getInfo());
+		head = head->getNext();
+	}
+}
+
+template<class T>
+void LinkedList<T>::replaceTailToHead(){
+	if (head == 0 || head == tail){
+		cerr<< "Can not replace.\n";
+	}
+	else {
+		Node<T>* temp = head;
+		this->addToHead(tail->getInfo());
+		head->setNext(temp);
+		
+		this->deleteTail();
+	}
+}
+

@@ -1,8 +1,6 @@
 #include <iostream>
-
 #include "F:\Programming\C++\DSA-in-University\Stack\StackArray.h"
 #include <ctype.h>
-/* run this program using the console pauser or add your own getch, system("pause") or input loop */
 
 int prec(char opr){
 	if (opr == '^'){
@@ -14,12 +12,13 @@ int prec(char opr){
 	else if (opr == '+' || opr == '-'){
 		return 1;
 	}
-}
+} 
+
 void postfixEvaluation(string exp){
 	StackArray<double> st(exp.length());
 	
 	for (int i=0; i<exp.length(); i++){
-		if ((isdigit(exp[i]))){
+		if (isdigit(exp[i])){
 			char c = exp[i];
 			double temp = c-'0';
 			st.push(temp);
@@ -85,8 +84,8 @@ string infixToPostfix(string infix){
 } // end of Infix to Postfix
 
 int main(int argc, char** argv) {
-//	postfixEvaluation("953/-52*+");
-	cout<< infixToPostfix("9-5/3+5*2");
+	postfixEvaluation("953/-52*+");
+//	cout<< infixToPostfix("9-5/3+5*2");
 //	cout<< infixToPostfix("a+b*c+(d*e+f)*g");
 
 	return 0;

@@ -29,6 +29,19 @@ void stringReversal(string text){
 	cout<< endl;
 }
 
+string stringReverse(string text){
+	StackLinked<char> st;
+	string rString = "";
+	for (int i=0; i<text.length(); i++){
+		st.push(text[i]);
+	}
+	while (!st.isEmpty()){
+		char c = st.pop();
+		rString += c;
+	}
+	return rString;
+}
+
 bool symbolBalancing(string text){
 		StackArray<char> st(text.length());
 		for (int i=0; i<text.length(); i++){
@@ -59,9 +72,10 @@ bool symbolBalancing(string text){
 }
 int main(int argc, char** argv) {
 	
-//	decimalToBinary(25);
+	decimalToBinary(25);
 //	stringReversal("Ammar");
-	cout<< symbolBalancing("}}}");
+//	cout<< symbolBalancing("}}}");
+//	cout<< stringReverse("Ammar Afzal");
 //	symbolBalancing
 	return 0;
 }
