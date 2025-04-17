@@ -5,8 +5,8 @@ This repository contains all **Data Structures and Algorithms (DSA)** practices 
 Each practice or project is organized into a separate folder:  
 - 📁 **Array Lists** – Implementation of arrays in the context of resizing, insertion, deletion, search, and sort functions. 
 - 📁 **Linked Lists** – Implementation of singly, doubly, and circular linked lists.  
-<!-- - 📁 **Stacks & Queues** – Stack and queue operations using arrays & linked lists.
-- 📁 **Sorting & Searching** – Algorithms like Bubble Sort, Merge Sort, Binary Search, etc.  
+- 📁 **Stacks & Queues** – Stack and queue operations using arrays & linked lists.
+<!-- - 📁 **Sorting & Searching** – Algorithms like Bubble Sort, Merge Sort, Binary Search, etc.  
 - 📁 **Trees & Graphs** – Implementations of BST, AVL Trees, Graph Traversal (DFS, BFS).  
 - 📁 **Dynamic Programming & Recursion** – Solving problems with DP and recursive techniques.  -->
 
