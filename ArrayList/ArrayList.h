@@ -39,8 +39,8 @@ class ArrayList {
 
 int ArrayList::LV(){
 	int index = -1;
-	int i =0;
-	int maxVal = INT_MIN;
+	int i =1;
+	int maxVal = arr[0];
 	while (i<this->currentIndex){
 		if (maxVal < arr[i]){
 			maxVal = arr[i];

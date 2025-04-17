@@ -26,7 +26,7 @@ void BookLinkedList<Book>::display(){
 		i->getInfo()->display();
 		i = i->getNext();
 	}
-}
+} // 
 
 template <class Book>
 void BookLinkedList<Book>::showSummary(){
@@ -40,7 +40,7 @@ void BookLinkedList<Book>::showSummary(){
 		cout<< ">>> Total Cost: " <<this->calTotalPrice();
 		cout<< endl;
 	}
-}
+} // 
 
 template <class Book>
 Node<Book>* BookLinkedList<Book>::searchByID(int id){
@@ -55,7 +55,7 @@ Node<Book>* BookLinkedList<Book>::searchByID(int id){
 		}
 	}
 	return 0;
-}
+} // 
 
 template <class Book>
 double BookLinkedList<Book>::calTotalPrice(){
@@ -67,7 +67,7 @@ double BookLinkedList<Book>::calTotalPrice(){
 		i = i->getNext();
 	}
 	return totalCost;
-}
+} // 
 
 template <class Book>
 void BookLinkedList<Book>::removeBook(int id){
@@ -80,6 +80,6 @@ void BookLinkedList<Book>::removeBook(int id){
 		this->remove(temp->getInfo());  // Correctly removing by ID
 		cout << "Book Removed Successfully. \n";
 	}
-}
+} // 
 
 

@@ -15,6 +15,7 @@ class StackLinked {
 	T pop();
 	void display();
 	bool isEmpty();
+	T topValue();
 	
 };
 
@@ -55,6 +56,11 @@ void StackLinked<T>::display(){
 		i = i->getNext();
 	}
 	cout<< endl;
+}
+
+template <class T>
+T StackLinked<T>::topValue(){
+	return top->getInfo();
 }
 
 

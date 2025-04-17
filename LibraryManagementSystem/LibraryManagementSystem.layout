@@ -9,12 +9,13 @@ CursorRow=2
 TopLine=1
 LeftChar=1
 [Editor_2]
-CursorCol=2
-CursorRow=70
-TopLine=49
+CursorCol=42
+CursorRow=74
+TopLine=53
 LeftChar=1
 [Editors]
-Order=
+Order=1,2
+Focused=2
 [Editor_3]
 CursorCol=1
 CursorRow=1

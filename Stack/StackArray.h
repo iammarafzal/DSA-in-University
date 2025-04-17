@@ -10,9 +10,8 @@ class StackArray {
 		int size;
 		
 	public:
-		StackArray(T size=5) {
+		StackArray(int size=5) {
 			top = -1;
-			arr = new T(size);
 		}
 		void push(T element);
 		T pop();

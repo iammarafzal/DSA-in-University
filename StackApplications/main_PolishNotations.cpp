@@ -1,5 +1,7 @@
 #include <iostream>
 #include "F:\Programming\C++\DSA-in-University\Stack\StackArray.h"
+#include "F:\Programming\C++\DSA-in-University\Stack\StackLinked.h"
+//#include "F:\Programming\C++\DSA-in-University\StackApplications\StackApplications.dev"
 #include <ctype.h>
 
 int prec(char opr){
@@ -47,45 +49,53 @@ void postfixEvaluation(string exp){
 	cout<< st.pop() <<endl;
 } // end of postfix evaluation
 
-
-string infixToPostfix(string infix){
-	StackArray <char> st(infix.length());
-	string expression = "";
-	for (int i=0; i<infix.length(); i++){
-		if (isdigit(infix[i]) || isalpha(infix[i])){ // if operand
-			expression += infix[i];
+string infixToPostfix(string exp){
+	StackLinked<char> st;
+	string input = "";
+	for (int i=0; i<exp.length(); i++){
+		if (isalpha(exp[i])){
+			input += exp[i];
 		}
-		else if (infix[i] == '('){ // if opening brackets
-			st.push(infix[i]);
+		else if (exp[i] == '('){
+			st.push(exp[i]);
 		}
-		else if (infix[i] == '+' || infix[i] == '-' || infix[i] == '*' || infix[i] == '/'){ // if operator
+		else if (exp[i] == '+' || exp[i] == '-' || exp[i] == '/' || exp[i] == '*'){
 			if (st.isEmpty()){
-				st.push(infix[i]);
+				st.push(exp[i]);
 			}
-			else if (!st.isEmpty()){
-				while (st.topValue() == '(' && !st.isEmpty() && prec(st.topValue() >= prec(infix[i]))){
-					expression += st.pop();
+			else {
+				while (!st.isEmpty() && st.topValue() != '(' && prec(st.topValue()) >= prec(exp[i])){
+					input += st.pop();
 				}
-				st.push(infix[i]);
+				st.push(exp[i]);
 			}
 		}
-		else if (infix[i] == ')'){ // closing brackets
-			while (!st.isEmpty()){
-				expression += st.pop();
+		else if (exp[i] == ')'){
+			while (st.topValue() != '('){
+				input += st.pop();
 			}
-		}
-	} // end of for loop
-	if (!st.isEmpty()){
-		while (!st.isEmpty()){
-			expression += st.pop();
+			st.pop();
 		}
 	}
-	return expression;
-} // end of Infix to Postfix
+	if (!st.isEmpty()){
+		while (!st.isEmpty()){
+			input += st.pop();
+		}
+	}
+	return input;
+} // infix to postfix
+
+string infixToPrefix(string infix){
+	StackArray<char> st(infix.length());
+	string input = "";
+	input = 
+}
+
 
 int main(int argc, char** argv) {
-	postfixEvaluation("953/-52*+");
+//	postfixEvaluation("953/-52*+");
 //	cout<< infixToPostfix("9-5/3+5*2");
+	cout<< infixToPostfix("a+b*c+(d*e+f)*g");
 //	cout<< infixToPostfix("a+b*c+(d*e+f)*g");
 
 	return 0;
