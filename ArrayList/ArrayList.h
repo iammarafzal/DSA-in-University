@@ -35,6 +35,8 @@ class ArrayList {
 		void bubbleSort();
 		void insertionSort(int n);
 		int LV();
+		void mergeSort(int low, int high);
+		void merge(int low, int mid, int high);
 };
 
 int ArrayList::LV(){
@@ -255,3 +257,43 @@ void ArrayList::insertionSort(int n){
 		arr[j+1] = key;
 	}
 } // end of Insertion Sort
+
+void ArrayList::merge(int low, int mid, int high){
+	int n = high - low +1;
+	int* temp = new int[n];
+	int left = low, right = mid + 1;
+	int k = 0;
+	
+	while (left <= mid && right <= high){
+		if (arr[left] <= arr[right]){
+			temp[k++] = arr[left++];
+		}
+		else {
+			temp[k++] = arr[right++];
+		}
+	}
+	
+	while (left <= mid){
+		temp[k++] = arr[left++];
+	}
+	
+	while (right <= high){
+		temp[k++] = arr[right++];
+	}
+	
+	for (int i=0; i<n; i++){
+		arr[low + i] = temp[i];
+	}
+	
+	delete[] temp;
+}
+void ArrayList::mergeSort(int low, int high){
+//	int low = 0, high = this->size-1;
+	int mid = (low + high) / 2;
+	if (low == high){
+		return;
+	}
+	this->mergeSort(low, mid);
+	this->mergeSort(mid+1, high);
+	this->merge(low, mid, high);
+}

@@ -34,6 +34,7 @@ int main(int argc, char** argv) {
 	// cout<< lst1.isFound(3) <<endl;
 	// cout<< lst1.binarySearch(39) <<endl;
 	lst1.display();
+	lst1.mergeSort(0, 6);
 //	lst1.insertionSort(5);
 //	lst1.bubbleSort();
 //	cout<< lst1.LV() <<endl;

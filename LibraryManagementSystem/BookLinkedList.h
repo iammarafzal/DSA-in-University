@@ -7,6 +7,9 @@ using namespace std;
 template <class Book>
 class BookLinkedList : public LinkedList<Book> {
 	public:
+		BookLinkedList (){
+			
+		}
 		void display();
 		Node<Book>* searchByID(int id);
 		void removeBook(int id);

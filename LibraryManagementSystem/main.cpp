@@ -29,7 +29,7 @@ void loadBooksFromFile(BookLinkedList<Book*> & inventory) {
     while (file >> id) {
         file.ignore();  // ignore space and newline 
 
-        getline(file, title, ',');  // read until the , comes
+        getline(file, title, ',');  // read until the , found
         getline(file, author, ',');
         file >> price; 
         file.ignore(); 
@@ -38,7 +38,7 @@ void loadBooksFromFile(BookLinkedList<Book*> & inventory) {
         Book* book = new Book(id, title, author, price);
 
         // add book node to inventory 
-        inventory.addToHead(book);
+        inventory.addToTail(book);
     }
     file.close();
 }
