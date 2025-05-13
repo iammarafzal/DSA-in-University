@@ -13,9 +13,10 @@ class BinarySearchTree {
 		}
 		void insert(T info);
 		void preOrder(TreeNode<T>* t_root);
-		void preOrder(TreeNode<T>* t_root);
-		void preOrder(TreeNode<T>* t_root);
+		void postOrder(TreeNode<T>* t_root);
+		void inOrder(TreeNode<T>* t_root);
 		TreeNode<T>* getRoot();
+		TreeNode<T>* search(T value);
 
 };
 
