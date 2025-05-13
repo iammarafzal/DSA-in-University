@@ -75,17 +75,41 @@ void BinarySearchTree<T>::preOrder(TreeNode<T>* t_root){
 template <class T>
 void BinarySearchTree<T>::inOrder(TreeNode<T>* t_root){
 	if (t_root != 0){
-		this->preOrder(t_root->getLeft());
+		this->inOrder(t_root->getLeft());
 		cout<< t_root->getInfo() <<"\t";
-		this->preOrder(t_root->getRight());
+		this->inOrder(t_root->getRight());
 	}
 }
 
 template <class T>
 void BinarySearchTree<T>::postOrder(TreeNode<T>* t_root){
 	if (t_root != 0){
-		this->preOrder(t_root->getLeft());
-		this->preOrder(t_root->getRight());
+		this->postOrder(t_root->getLeft());
+		this->postOrder(t_root->getRight());
 		cout<< t_root->getInfo() <<"\t";
+	}
+}
+
+template <class T>
+TreeNode<T>* BinarySearchTree<T>::search(T value){
+	
+	if (temp->getInfo() == 0){
+		cerr<< "Tree is empty. \n";
+		return 0;
+	}
+	else {
+		TreeNode<T>* temp = this-root;
+		while (temp != 0 && value != temp->getInfo())
+		{
+			if (value < root->getInfo()){
+				temp = temp->getLeft();
+				this->search(value);
+			}
+			else if (value > temp->getInfo()){
+				temp = temp->getRight();
+				this->search(value);
+			}
+		}
+		return temp;
 	}
 }
