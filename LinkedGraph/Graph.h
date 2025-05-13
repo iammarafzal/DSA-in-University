@@ -1,6 +1,7 @@
 #include <iostream>
 #include "HeaderLL.h"
 #include "F:\Programming\C++\DSA-in-University\QueueArray\QueueArray.h"
+#include "F:\Programming\C++\DSA-in-University\Stack\StackArray.exe"
 using namespace std;
 
 class Graph {
@@ -14,7 +15,8 @@ class Graph {
 		}
 		void addEdge(int srcVertex, int destVetrex);
 		void printGraph();
-		void BFS(int startV);		
+		void BFS(int startV);	
+		void DFS(int startV);			
 };
 
 void Graph::addEdge(int srcVertex, int dstVertex){
@@ -53,3 +55,26 @@ void Graph::BFS(int startV){
 		}
 	}
 }
+
+//void Graph::DFS(int startV){
+////	bool visited[this->vertices] = {false};
+//	StackArray<int> s(this->vertices);
+//	
+////	visited[startV] = true;
+//	s.push(startV);
+//	
+//	while (!s.isEmpty()){
+//		int v = s.pop();
+//		cout<< v << "\t";
+//		
+//		Node* temp = adjList[v].getHead();
+//		
+//		while (temp != 0){
+//			if (!visited[temp->getInfo()]){
+//				s.push(temp->getInfo());
+////				visited[temp->getInfo()] = true;
+//			}
+//			temp = temp->getNext();
+//		}
+//	}
+//}

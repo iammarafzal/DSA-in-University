@@ -25,11 +25,10 @@ template <class T>
 void StackArray<T>::push(T element){
 	if (top == size-1){
 		cerr<< "Stack overflow.\n";
+		return;
 	}
-	else {
-		top++;
-		arr[top] = element;
-	}
+	top++;
+	arr[top] = element;
 }
 
 template <class T>

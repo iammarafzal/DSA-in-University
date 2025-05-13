@@ -34,6 +34,7 @@ class LinkedList {
 		void remove(T element);
 		void replaceHeadToTail();
 		void replaceTailToHead();
+		void addSorted(T value);
 };
 
 template <class T>
@@ -214,3 +215,26 @@ void LinkedList<T>::replaceTailToHead(){
 	}
 }
 
+template <class T>
+void LinkedList<T>::addSorted(T value){	
+	if (head == 0 && tail == 0){
+		this->addToHead(value);
+	}
+	else if (value >= tail->getInfo()){
+		this->addToTail(value);
+	}
+	else if (value <= head->getInfo()){
+		this->addToHead(value);
+	}
+	else {
+		Node<T>* n = new Node<T>(value);
+		Node<T>* i = head;
+		
+		while (value >= i->getNext()->getInfo()){
+			i = i->getNext();
+		}
+		Node<T>* temp = i->getNext();
+		i->setNext(n);
+		n->setNext(temp);
+	}
+}

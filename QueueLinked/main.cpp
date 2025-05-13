@@ -9,8 +9,8 @@ int main(int argc, char** argv) {
 	q.Enqueue(15);
 	q.Enqueue(20);
 	
-	cout<< q.rearValue() <<endl;
-	cout<< q.frontValue() <<endl;
+	cout<< "Rear Value: " <<q.rearValue() <<endl;
+	cout<< "Front Value: " <<q.frontValue() <<endl;
 	
 	while (!q.isEmpty()){
 		cout<< q.Dequeue() <<" " ;
