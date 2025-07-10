@@ -1,4 +1,4 @@
-# DSA-in-University  
+# DSA-in-C++
 This repository contains all **Data Structures and Algorithms (DSA)** practices and projects implemented in **C++** during university coursework.
 
 ## 📂 Folder Structure  
