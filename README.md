@@ -21,11 +21,14 @@ Each topic is organized into a separate folder for clarity and easy navigation:
 - 📁 **Tree by Linked List** – Tree representation and traversal using pointers.  
 - 📁 **Two Way Linked List** – Doubly linked list supporting bi-directional traversal.  
 - 📁 **Applications** – Real-world use cases and implementations of:  
-  - Stack (e.g., expression evaluation, backtracking)  
-  - Queue (e.g., CPU scheduling, customer service simulation)  
-  - Graph (e.g., pathfinding, social network modeling)  
+  - Stack (e.g., expression evaluation, conversion, reversing string)  
+  - Heap
 
-- 📁 **Projects** – Mini DSA projects combining multiple data structures.  
+
+- 📁 **Projects** – Mini DSA projects combining multiple data structures.
+  - Flight System
+  - Library Management System
+  - Student Management Systen
 
 ## 🚀 Getting Started  
 1. Clone the repository:  
