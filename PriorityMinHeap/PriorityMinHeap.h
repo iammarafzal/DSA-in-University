@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-class PriorityMaxHeap {
+class PriorityMinHeap {
     private:
         int* values;
         int* priorities;
@@ -10,7 +10,7 @@ class PriorityMaxHeap {
 
         void heapifyUp(int i) {
             int parent = (i - 1) / 2;
-            while (i > 0 && priorities[parent] < priorities[i]) {
+            while (i > 0 && priorities[parent] > priorities[i]) {
                 swap(priorities[i], priorities[parent]);
                 swap(values[i], values[parent]);
                 i = parent;
@@ -19,19 +19,19 @@ class PriorityMaxHeap {
         }
 
         void heapifyDown(int i) {
-            int largest = i;
+            int smallest = i;
             int left = (2 * i) + 1;
             int right = (2 * i) + 2;
 
-            if (left < size && priorities[left] > priorities[largest])
-                largest = left;
-            if (right < size && priorities[right] > priorities[largest])
-                largest = right;
+            if (left < size && priorities[left] < priorities[smallest])
+                smallest = left;
+            if (right < size && priorities[right] < priorities[smallest])
+                smallest = right;
 
-            if (largest != i) {
-                swap(priorities[i], priorities[largest]);
-                swap(values[i], values[largest]);
-                heapifyDown(largest);
+            if (smallest != i) {
+                swap(priorities[i], priorities[smallest]);
+                swap(values[i], values[smallest]);
+                heapifyDown(smallest);
             }
         }
 
@@ -44,7 +44,7 @@ class PriorityMaxHeap {
         }
 
     public:
-        PriorityMaxHeap(int cap) {
+        PriorityMinHeap(int cap) {
             capacity = cap;
             values = new int[capacity];
             priorities = new int[capacity];
@@ -56,7 +56,7 @@ class PriorityMaxHeap {
         void display();
 };
 
-void PriorityMaxHeap::insert(int val, int priority) {
+void PriorityMinHeap::insert(int val, int priority) {
     if (size == capacity) {
         cout << "Heap is full!\n";
         return;
@@ -67,7 +67,7 @@ void PriorityMaxHeap::insert(int val, int priority) {
     size++;
 }
 
-void PriorityMaxHeap::deleteValue(int val) {
+void PriorityMinHeap::deleteValue(int val) {
     int index = findIndex(val);
     if (index == -1) {
         cout << "Value not found!\n";
@@ -84,7 +84,7 @@ void PriorityMaxHeap::deleteValue(int val) {
     heapifyUp(index);
 }
 
-void PriorityMaxHeap::display() {
+void PriorityMinHeap::display() {
     if (size == 0) {
         cout << "Heap is empty!\n";
         return;

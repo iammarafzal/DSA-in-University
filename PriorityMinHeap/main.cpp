@@ -1,14 +1,14 @@
 #include <iostream>
-#include "PriorityMaxHeap.h"
+#include "PriorityMinHeap.h"
 
 int main() {
-    PriorityMaxHeap ph(10);
+    PriorityMinHeap ph(10);
     ph.insert(100, 2);
     ph.insert(200, 5);
     ph.insert(300, 1);
-    ph.insert(400, 7);
+    ph.insert(400, 4);
 
-    cout << "Priority Max Heap: ";
+    cout << "Priority Min Heap: ";
     ph.display();
 
     cout << "Deleting value 200...\n";
